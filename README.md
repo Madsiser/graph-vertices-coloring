@@ -1,4 +1,4 @@
-# ColoringGraph
+# graph-verticles-coloring
 
 Program został napisany specjalnie do przedmiotu Techniki Algorytmiczne.
 
@@ -8,7 +8,7 @@ Program tworzy excela z pomiarami dla dwóch algorytmów, optymalnego i algorytm
 
 ![image](https://user-images.githubusercontent.com/63360050/233190172-8ba2b142-c338-4a34-986a-5dbd3277bc60.png)
 
-# Instalacja
+## Instalacja
 
 Do działania potrzebny jest interpreter języka Python w wersji conajmniej 3.11.0
 
@@ -35,7 +35,7 @@ pip install xlsxwriter
 pip install openpyxl
 ```
 
-# Obsługa programu
+## Obsługa programu
 
 Program polega na edycji funkcji zawartej w pliku `main.py` a następnie otworzeniu folderu w konsoli(`Shift+PPM` w
 folderze i wybranie opcji `Otworz w terminalu`) i wpisanie:
@@ -54,7 +54,7 @@ py main.py
 
 Po wykonaniu polecenia w tym samym folderze powinien wygenerować się domyślny plik test.xlsx
 
-# Parametry
+## Parametry
 
 | Parametry        | Zastosowanie                                                                                                                                                                                                                                               | Obowiązkowy |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------:|
