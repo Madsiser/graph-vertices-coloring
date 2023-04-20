@@ -4,7 +4,7 @@ Program został napisany specjalnie do przedmiotu Techniki Algorytmiczne.
 
 Problem: "Kolorowanie wierzchołków grafu"
 
-Program tworzy excela do tworzenia pomiarów:
+Program tworzy excela z pomiarami dla dwóch algorytmów, optymalnego i algorytmu LF:
 
 ![image](https://user-images.githubusercontent.com/63360050/233190172-8ba2b142-c338-4a34-986a-5dbd3277bc60.png)
 
