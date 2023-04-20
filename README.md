@@ -67,7 +67,7 @@ Po wykonaniu polecenia w tym samym folderze powinien wygenerować się domyślny
 | `printcolour`    | służy do wyświetlania metody pokolorowania wierzchołków na ekran                                                                                                                                                                                           |     NIE     |
 | `printamount`    | służy do wyświetlania ilosci urzytych kolorów na ekran                                                                                                                                                                                                     |     NIE     |
 | `printtime`      | służy do wyświetlania czas pracy algorytmów na ekran                                                                                                                                                                                                       |     NIE     |
-| `iterations=1`   | parametr mówiący ile badań ma przeprowadzić algorytm                                                                                                                                                                                                       |     NIE     |
+| `iterations`     | parametr mówiący ile badań ma przeprowadzić algorytm (Domyślnie 1)                                                                                                                                                                                         |     NIE     |
 
 Parametry wystarczy odkomentować (usunąć znak `#`) oraz zmienić wartość w przypadku parametrów odnoszących się do nazwy
 plików.
