@@ -29,7 +29,7 @@ def import_matrix(filename=None, size=None, number=1):
 
 
 def make(nodeAmount=3, edgeAmount=3):
-    incidentMatrix = np.array([0])
+    incidentMatrix = np.zeros([nodeAmount, edgeAmount], dtype=int)
     incidentMatrix.resize((nodeAmount, edgeAmount))
     test = 0
     isGood = False
@@ -63,7 +63,7 @@ def make(nodeAmount=3, edgeAmount=3):
                     if (p[0] == node1 and p[2] == node2) or (p[0] == node2 and p[2] == node1):
                         localGood = False
                         localTest += 1
-                        if localTest > nodeAmount * 2 + 100:
+                        if localTest > edgeAmount * 2 + 100:
                             print("Cannot link nodes. Probably too many edges")
                             return None
                         break
@@ -86,24 +86,24 @@ def make(nodeAmount=3, edgeAmount=3):
 def optimal(matrix):
     if matrix is None:
         return None
-    input_x = matrix.shape[0]
+    n = matrix.shape[0]
 
     def check():
-        ii = 0
-        for m in matrix:
-            jj = 0
-            for n in m:
-                if n == 1:
-                    for a in range(0, input_x):
-                        if matrix[a, jj] == 1 and not ii == a:
-                            if colours[ii] == colours[a]:
+        xx = 0
+        for x in matrix:
+            yy = 0
+            for y in x:
+                if y == 1:
+                    for a in range(0, n):
+                        if matrix[a, yy] == 1 and not xx == a:
+                            if colours[xx] == colours[a]:
                                 return False
-                jj += 1
-            ii += 1
+                yy += 1
+            xx += 1
         return True
 
     colours = []
-    for i in range(0, input_x):
+    for i in range(0, n):
         colours.append(0)
     system = 0
     done = False
@@ -112,7 +112,7 @@ def optimal(matrix):
             done = False
         else:
             system += 1
-        for it in range(0, input_x):
+        for it in range(0, n):
             if colours[it] < system:
                 colours[it] += 1
                 done = True
@@ -125,38 +125,49 @@ def optimal(matrix):
 def coloring(matrix):
     if matrix is None:
         return None
-    input_x = matrix.shape[0]
+    n = matrix.shape[0]
 
     def check():
-        ii = 0
-        for m in matrix:
-            if colours[ii] == -1:
-                ii += 1
+        xx = 0
+        for x in matrix:
+            if colours[xx] == -1:
+                xx += 1
                 continue
-            jj = 0
-            for n in m:
+            yy = 0
+            for y in x:
 
-                if n == 1:
-                    for a in range(0, input_x):
-                        if matrix[a, jj] == 1 and not ii == a:
-                            if colours[ii] == colours[a]:
+                if y == 1:
+                    for a in range(0, n):
+                        if matrix[a, yy] == 1 and not xx == a:
+                            if colours[xx] == colours[a]:
                                 return False
-                jj += 1
-            ii += 1
+                yy += 1
+            xx += 1
+        return True
+
+    def checkNode(nodeIndex):
+        yy = 0
+        for y in matrix[nodeIndex]:
+            if y == 1:
+                for a in range(0, n):
+                    if matrix[a, yy] == 1 and not nodeIndex == a:
+                        if colours[nodeIndex] == colours[a]:
+                            return False
+            yy += 1
         return True
 
     deg = []
-    for m in matrix:
-        deg.append(sum(m))
+    for x in matrix:
+        deg.append(sum(x))
     colours = []
-    for i in range(0, input_x):
+    for i in range(0, n):
         colours.append(-1)
     for j in range(max(deg), 0, -1):
         color = 0
-        for i in range(0, input_x):
+        for i in range(0, n):
             if deg[i] == j:
                 colours[i] = color
-                while not check():
+                while not checkNode(i):
                     color += 1
                     colours[i] = color
     if check():
