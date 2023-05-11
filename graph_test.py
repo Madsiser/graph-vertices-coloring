@@ -41,13 +41,13 @@ def make_test(size=None,
             matrix = ga.import_matrix(importfilename)
         if matrix is None:
             exit("Creating matrix is fault. Bad importfilename")
-        start = time.time()
+        start = time.perf_counter()
         colourlf = ga.coloring(matrix)
-        end = time.time()
+        end = time.perf_counter()
         time_lf = end - start
-        start = time.time()
+        start = time.perf_counter()
         colouro = ga.optimal(matrix)
-        end = time.time()
+        end = time.perf_counter()
         time_optimal = end - start
         if exporttoexcel:
             wb = load_workbook(filename=filename)
