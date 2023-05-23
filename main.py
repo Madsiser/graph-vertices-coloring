@@ -9,5 +9,6 @@ gt.make_test(size=[7, 14]
              # , printcolour=True
              # , printamount=True
              # , printtime=True
+             # , printmemory=True
              # , iterations=1
              )

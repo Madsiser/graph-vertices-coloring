@@ -14,8 +14,9 @@ def make_test(size=None,
               printcolour=False,
               printamount=False,
               printtime=False,
+              printmemory=False,
               iterations=1):
-    if size is None or size[1] < size[0]-1 or size[1] > size[0]*(size[0]-1)/2:
+    if size is None or size[1] < size[0] - 1 or size[1] > size[0] * (size[0] - 1) / 2:
         exit("Size is bad")
     if not path.exists(filename) and exporttoexcel:
         workbook = xlsxwriter.Workbook(filename)
@@ -58,9 +59,9 @@ def make_test(size=None,
             ws["A" + str(row)] = str(size[0])
             ws["B" + str(row)] = str(size[1])
             ws["C" + str(row)] = time_optimal
-            ws["D" + str(row)] = max(colouro)+1
+            ws["D" + str(row)] = max(colouro) + 1
             ws["E" + str(row)] = time_lf
-            ws["F" + str(row)] = max(colourlf)+1
+            ws["F" + str(row)] = max(colourlf) + 1
             wb.save(filename)
             print("Test exported successful")
         if exporttofile and importfilename is None:
@@ -73,10 +74,13 @@ def make_test(size=None,
             print("Optimal algorithm: ", colouro)
             print("Algorithm LF:", colourlf)
         if printamount:
-            print("Optimal algorithm: ", max(colouro)+1)
-            print("Algorithm LF:", max(colourlf)+1)
+            print("Optimal algorithm: ", max(colouro) + 1)
+            print("Algorithm LF:", max(colourlf) + 1)
         if printtime:
             print("Optimal algorithm: ", time_optimal, "s")
             print("Algorithm LF:", time_lf, "s")
-            print("Delta time:", time_optimal-time_lf, "s")
+            print("Delta time:", time_optimal - time_lf, "s")
+        if printmemory:
+            print("Optimal algorithm: ", matrix.size + max(colouro) + 1 + 6, "B")
+            print("Algorithm LF:", matrix.size + max(colourlf) + 1 + 8, "B")
         print("Done")
