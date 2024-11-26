@@ -1,2 +1,4 @@
-/test.xlsx
-/__pycache__/
+*.xlsx
+__pycache__
+venv
+.venv

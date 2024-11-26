@@ -15,24 +15,10 @@ Do działania potrzebny jest interpreter języka Python w wersji conajmniej 3.11
 Aby zaintalować Pythona w systemie Windows należy wcisnąć `Win+R` następnie wpisać `powershell` a po odpaleniu konsoli
 należy wpisac `python`, wtedy wyświetli się Microsoft Store z którego należy pobrać Pythona.
 
-Dodatkowo należy zaintalować wpisując w konsoli **Powershell**:
-
-- pakiet Numpy
+Dodatkowo należy zaintalować biblioteki wpisując w konsoli **Powershell**:
 
 ```
-pip install numpy
-```
-
-- pakiet XlsxWriter
-
-``` 
-pip install xlsxwriter
-```
-
-- pakiet openpyxl
-
-```
-pip install openpyxl
+pip install -r requirements.txt
 ```
 
 ## Obsługa programu
@@ -40,17 +26,10 @@ pip install openpyxl
 Program polega na edycji funkcji zawartej w pliku `main.py` a następnie otworzeniu folderu w konsoli(`Shift+PPM` w
 folderze i wybranie opcji `Otworz w terminalu`) i wpisanie:
 
-Windows:
-
 ```
 python main.py
 ```
 
-Linux:
-
-```
-py main.py
-```
 
 Po wykonaniu polecenia w tym samym folderze powinien wygenerować się domyślny plik test.xlsx
 
